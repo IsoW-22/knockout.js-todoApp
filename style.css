@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+#container {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: minmax(200px, 17%) 83%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: "nav head" "nav items";
+}
+
+#nav {
+  background-color: #B68F40;
+  grid-area: nav;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 1000;
+  transition: width s;
+}
+
+#head {
+  background-color: #B6CCA1;
+  grid-area: head;
+  position: relative;
+}
+
+#items {
+  background-color: #D7FCD4;
+  grid-area: items;
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+}
+
+.name-input {
+  font-family: "Source Code Pro", monospace;
+  margin-left: 10px;
+  margin-top: 5px;
+  height: 20px;
+  width: 100px;
+  padding-left: 3px;
+  background-color: inherit;
+  float: left;
+  opacity: 0.1;
+}
+.name-input:focus {
+  background-color: white;
+  opacity: 1;
+}
+
+.welcome {
+  font-size: 1.5rem;
+  margin-left: 200px;
+  margin-top: 20px;
+  font-family: "Source Code Pro", monospace;
+}
+
+h2 {
+  float: left;
+  font-family: "Permanent Marker", cursive;
+}
+
+.add-todo {
+  width: 80px;
+  height: 40px;
+  background-color: #B6CCA1;
+  border: none;
+  margin-left: 50px;
+  font-family: "Source Code Pro", monospace;
+}
+.add-todo:hover {
+  background-color: #B68F40;
+  cursor: pointer;
+}
+
+ul {
+  font-family: "Permanent Marker", cursive;
+  margin-top: 70px;
+  height: 200px;
+  width: 100%;
+  color: #fff;
+}
+ul li {
+  height: 33%;
+  background-color: #30011E;
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  padding-left: 10px;
+}
+ul li:hover {
+  background-color: rgba(48, 1, 30, 0.5);
+  cursor: pointer;
+}
+
+table {
+  font-family: "Caveat", cursive;
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+}
+table a {
+  color: #fff;
+  text-decoration: none;
+}
+table a:hover {
+  color: #D7FCD4;
+  text-decoration: underline;
+}
+
+th {
+  font-size: 1.3rem;
+}
+
+label {
+  padding-left: 15px;
+  text-indent: -15px;
+  display: block;
+}
+
+td {
+  width: 90%;
+  min-width: 90px;
+  color: #fff;
+  background-color: #6c6c6c;
+  height: 40px;
+  padding-left: 10px;
+}
+td input[type=text] {
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+  color: #fff;
+  border: none;
+  padding: 3px;
+  width: 80%;
+  background-color: inherit;
+}
+td input[type=text]:focus {
+  color: black;
+  background-color: #D7FCD4;
+  outline: none;
+}
+
+td:nth-child(n+2) {
+  background-color: #30011E;
+}
+
+.true td {
+  color: black;
+  background-color: green !important;
+}
+.true td:nth-child(n+2) {
+  background-color: greenyellow !important;
+}
+.true td input[type=text] {
+  text-decoration: line-through;
+  color: black;
+}
+.true td a {
+  color: black;
+}
+
+tr {
+  width: 47%;
+  float: left;
+  margin-left: 20px;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  background-color: green;
+  vertical-align: bottom;
+  position: relative;
+  top: 0px;
+  border: 1px solid green;
+}
+
+.back {
+  display: none;
+  width: 30px;
+  height: 30px;
+  margin-top: 3px;
+}
+.back:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin-top: 3px;
+}
+.menu:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media only screen and (max-width: 1000px) {
+  tr {
+    clear: both;
+    width: 90%;
+  }
+  td {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 630px) {
+  #container {
+    grid-template-columns: 100%;
+    grid-template-areas: "head" "items";
+  }
+  #nav {
+    display: none;
+  }
+  td {
+    min-width: none;
+  }
+  td input[type=text] {
+    width: 60%;
+  }
+  h2 {
+    float: none;
+  }
+  .add-todo {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 40%;
+  }
+  .name-input {
+    float: none;
+  }
+  .welcome {
+    margin: 0;
+    text-align: center;
+  }
+  .back, .menu {
+    display: block;
+  }
+}/*# sourceMappingURL=style.css.map */

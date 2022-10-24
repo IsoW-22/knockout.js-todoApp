@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo app</title>
+</head>
+<body>
+    <div id="container">
+        <div id="head">
+            <img src="https://img.icons8.com/office/30/000000/menu.png" class="menu"/>
+            <input type="text" data-bind="value: person, visible: editing, hasFocus: editing" placeholder="Your name" class="welcome">
+
+            <p class="welcome">
+                welcome <span data-bind="text: person().length === 0 ? 'new user' : person, visible: !editing(), click: edit"></span>
+            </p>
+        </div>
+
+        <div id="nav">
+            <img src="https://img.icons8.com/nolan/30/back.png" class="back"/>
+            <ul>
+                <li class="all-todos">All Todos</li>
+                <li class="done-todos">Done Todos</li>
+                <li class="undone-todos">Undone Todos</li>
+            </ul>
+        </div>
+
+        <div id="items">
+            <h2 data-bind="visible: todos().length === 0">Yaaaay! you did all of your things</h2>
+            <h2 data-bind="visible: todos().length === 1">You have 1 thing to do</h2>
+            <h2 data-bind="visible: todos().length > 1">You have <span data-bind="text: todos().length"></span> things to do</h2>
+            <button data-bind="click: addTodo, disable: todos().length > 19" class="add-todo">Add Todo</button>
+            <table>
+                <tbody data-bind="foreach: todos">
+                    <tr data-bind="class: isDone">
+                        <td><input data-bind="value: name, disable: isDone" type="text"/></td>
+                        <td><label>
+                                <input type="checkbox" data-bind="checked: isDone" />
+                                Done
+                            </label>
+                        </td>
+                        <td><a href="#" data-bind="click: $root.removeTodo">Remove</a></td>
+                    </tr>    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="knockout-3.5.1.js"></script>
+    <script src="ViewModel.js"></script>
+    <script src="todoMenu.js"></script>
+</body>
+</html>
