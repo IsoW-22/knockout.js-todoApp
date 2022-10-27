@@ -115,97 +115,34 @@ ul {
     }
 }
 
-table {
-    font-family: 'Caveat', cursive;
-    width: 100%;
-    text-align: left;
-    margin: {
-      top: 10px;
-    }
-    a {
-        color: $text_white;
-        text-decoration: none;
-        &:hover {
-            color: $body_color;
-            text-decoration: underline;
-        }
-    }
-}
-
-
-th {
-    font: {
-        size: 1.3rem;
-    }
-}
-
 label {
     padding-left: 15px;
     text-indent: -15px;
     display: block;
 }
 
-td {
-    width: 90%;
-    min-width: 90px;
-    color: $text_white;
-    background-color: $items;
-    height: 40px;
-    padding: {
-        left: 10px
-    };
-    input[type="text"]{
-        font: {
-            family: 'Caveat', cursive;
-            size: 1.3rem;
-        }
-        color: $text_white;
-        border: none;
-        padding: 3px;
-        width: 80%;
-        background-color: inherit;
-        &:focus {
-            color: black;
-            background-color: $body_color;
-            outline: none;
-        }
-    }
-}
-
-td:nth-child(n+2){
-    background-color: $special_red;
-}
-
-.true td{
-    color: black;
-    background-color: green !important;
-    &:nth-child(n+2) {
-        background-color: greenyellow !important;
-    }
+.true {
+    color: white;
+    background-color: greenyellow !important;
     input[type="text"] {
         text-decoration: line-through;
         color: black;
     }
     a {
-        color: black;
+        color: white;
     }
-}
-
-tr {
-    width: 47%;
-    float: left;
-    margin-left: 20px;
+    .remove, .done {
+        background-color: green !important;
+    }
 }
 
 input[type="checkbox"] {
     width: 20px;
     height: 20px;
     margin-top: 3px;
-    background-color: green;
     vertical-align: bottom;
     position: relative;
     top: 0px;
-    border: 1px solid green;
 }
 
 .back {
@@ -233,14 +170,82 @@ input[type="checkbox"] {
     }
 }
 
+.main-container {
+    width: 95%;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.todo-item {
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: {
+        top: 10px;
+    };
+}
+
+.task, .done-remove {
+    height: 40px;
+    margin-top: 2px;
+}
+
+.task {
+    width: 65%;
+    padding-left: 5px;
+    input {
+        font-family: 'Caveat', sans-serif;
+        padding: 5px;
+        font-size: 1.5rem;
+        max-width: 300px;
+        width: 97%;
+        height: 30px;
+        display: block;
+        margin: {
+            top: 5px;
+            left: 5%;
+        };
+    }
+    background-color: $items;
+}
+
+.done-remove {
+    display: flex;
+    width: 30%;
+}
+
+.done-remove > div {
+    background-color: $nav_color;
+    @include center;
+    width: 50%;
+    a {
+        text-decoration: none;
+        margin-top: 5px;
+        &:hover {
+            color: rgba($color: #fff, $alpha: 0.5);
+        }
+    }
+    &:hover {
+        background-color: rgba($color: $nav_color, $alpha: 0.7);
+    }
+}
+
 @media only screen and (max-width: 1000px) {
-    tr {
-        clear: both;
-        width: 90%;
+    .todo-item {
+        display: block;
     }
 
-    td {
-        width: 30%;
+    .task {
+        width: 70%;
+    }
+
+    .done-remove {
+        width: 70%;
+        justify-content: space-between;
+    }
+
+    .done-remove > div {
+        max-width: 100px;
     }
 }
 
@@ -254,13 +259,6 @@ input[type="checkbox"] {
 
     #nav {
         display: none;
-    }
-
-    td {
-        min-width: none;
-        input[type="text"]{
-            width: 60%;
-        }
     }
 
     h2 {
@@ -288,5 +286,15 @@ input[type="checkbox"] {
 
     .back, .menu {
         display: block;
+    }
+
+    .done-remove, .task {
+        width: 100%;
+    }
+
+    .task {
+        input {
+            margin-left: 0;
+        }
     }
 }

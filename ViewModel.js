@@ -19,17 +19,7 @@ function appViewModel() {
     self.todos = ko.observableArray([]);
 
     self.addTodo = function() {
-        let currentNumber = '';
-        if(self.todos().length === 0) {
-            currentNumber = '1st';
-        } else if (self.todos().length === 1){
-            currentNumber = '2nd';
-        } else if (self.todos().length === 2){
-            currentNumber = '3rd';
-        }else if (self.todos().length > 2){
-            currentNumber = `${self.todos().length + 1}th`;
-        }
-        self.todos.push(new Task({ name: `${currentNumber} task` }));
+        self.todos.push(new Task({ name: `new task` }));
     }
 
     self.removeTodo = function(todo) { self.todos.remove(todo); }

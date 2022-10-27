@@ -2,28 +2,43 @@
 
 const allTodo = document.querySelector(".all-todos");
 allTodo.addEventListener("click", () => {
-    const items = document.querySelectorAll("tr");
+    const items = document.querySelectorAll(".task, .done-remove");
     items.forEach(todo => {
-        todo.style.display = "block";
+        if(todo.classList.contains("task")){
+            todo.style.display = "block";
+        }
+        if(todo.classList.contains("done-remove")){
+            todo.style.display = "flex";
+        }
     })
 });
 
 const doneTodo = document.querySelector(".done-todos");
 doneTodo.addEventListener("click", () => {
-    const items = document.querySelectorAll("tr");
+    const items = document.querySelectorAll(".task, .done-remove");
     items.forEach(todo => {
         todo.style.display = "none";
         if(todo.classList.contains("true")) {
-            todo.style.display = "block"
+            if(todo.classList.contains("task")){
+                todo.style.display = "block";
+            }
+            if(todo.classList.contains("done-remove")){
+                todo.style.display = "flex";
+            }
         }
     })
 });
 
 const undoneTodo = document.querySelector(".undone-todos");
 undoneTodo.addEventListener("click", () => {
-    const items = document.querySelectorAll("tr");
+    const items = document.querySelectorAll(".task, .done-remove");
     items.forEach(todo => {
-        todo.style.display = "block";
+        if(todo.classList.contains("task")){
+            todo.style.display = "block";
+        }
+        if(todo.classList.contains("done-remove")){
+            todo.style.display = "flex";
+        }
         if(todo.classList.contains("true")) {
             todo.style.display = "none"
         }

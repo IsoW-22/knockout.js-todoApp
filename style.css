@@ -105,88 +105,34 @@ ul li:hover {
   cursor: pointer;
 }
 
-table {
-  font-family: "Caveat", cursive;
-  width: 100%;
-  text-align: left;
-  margin-top: 10px;
-}
-table a {
-  color: #fff;
-  text-decoration: none;
-}
-table a:hover {
-  color: #D7FCD4;
-  text-decoration: underline;
-}
-
-th {
-  font-size: 1.3rem;
-}
-
 label {
   padding-left: 15px;
   text-indent: -15px;
   display: block;
 }
 
-td {
-  width: 90%;
-  min-width: 90px;
-  color: #fff;
-  background-color: #6c6c6c;
-  height: 40px;
-  padding-left: 10px;
-}
-td input[type=text] {
-  font-family: "Caveat", cursive;
-  font-size: 1.3rem;
-  color: #fff;
-  border: none;
-  padding: 3px;
-  width: 80%;
-  background-color: inherit;
-}
-td input[type=text]:focus {
-  color: black;
-  background-color: #D7FCD4;
-  outline: none;
-}
-
-td:nth-child(n+2) {
-  background-color: #30011E;
-}
-
-.true td {
-  color: black;
-  background-color: green !important;
-}
-.true td:nth-child(n+2) {
+.true {
+  color: white;
   background-color: greenyellow !important;
 }
-.true td input[type=text] {
+.true input[type=text] {
   text-decoration: line-through;
   color: black;
 }
-.true td a {
-  color: black;
+.true a {
+  color: white;
 }
-
-tr {
-  width: 47%;
-  float: left;
-  margin-left: 20px;
+.true .remove, .true .done {
+  background-color: green !important;
 }
 
 input[type=checkbox] {
   width: 20px;
   height: 20px;
   margin-top: 3px;
-  background-color: green;
   vertical-align: bottom;
   position: relative;
   top: 0px;
-  border: 1px solid green;
 }
 
 .back {
@@ -210,13 +156,77 @@ input[type=checkbox] {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.main-container {
+  width: 95%;
+  font-family: "Source Code Pro", monospace;
+}
+
+.todo-item {
+  padding: 1px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.task, .done-remove {
+  height: 40px;
+  margin-top: 2px;
+}
+
+.task {
+  width: 65%;
+  padding-left: 5px;
+  background-color: #6c6c6c;
+}
+.task input {
+  font-family: "Caveat", sans-serif;
+  padding: 5px;
+  font-size: 1.5rem;
+  max-width: 300px;
+  width: 97%;
+  height: 30px;
+  display: block;
+  margin-top: 5px;
+  margin-left: 5%;
+}
+
+.done-remove {
+  display: flex;
+  width: 30%;
+}
+
+.done-remove > div {
+  background-color: #B68F40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.done-remove > div a {
+  text-decoration: none;
+  margin-top: 5px;
+}
+.done-remove > div a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+.done-remove > div:hover {
+  background-color: rgba(182, 143, 64, 0.7);
+}
+
 @media only screen and (max-width: 1000px) {
-  tr {
-    clear: both;
-    width: 90%;
+  .todo-item {
+    display: block;
   }
-  td {
-    width: 30%;
+  .task {
+    width: 70%;
+  }
+  .done-remove {
+    width: 70%;
+    justify-content: space-between;
+  }
+  .done-remove > div {
+    max-width: 100px;
   }
 }
 @media only screen and (max-width: 630px) {
@@ -226,12 +236,6 @@ input[type=checkbox] {
   }
   #nav {
     display: none;
-  }
-  td {
-    min-width: none;
-  }
-  td input[type=text] {
-    width: 60%;
   }
   h2 {
     float: none;
@@ -252,5 +256,11 @@ input[type=checkbox] {
   }
   .back, .menu {
     display: block;
+  }
+  .done-remove, .task {
+    width: 100%;
+  }
+  .task input {
+    margin-left: 0;
   }
 }/*# sourceMappingURL=style.css.map */
