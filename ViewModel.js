@@ -19,7 +19,7 @@ function appViewModel() {
     self.todos = ko.observableArray([]);
 
     self.addTodo = function() {
-        self.todos.push(new Task({ name: ""}));
+        self.todos.push(new Task({ name: "" }));
     }
 
     self.removeTodo = function(todo) { self.todos.remove(todo); }

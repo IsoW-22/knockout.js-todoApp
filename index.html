@@ -24,23 +24,27 @@
   <body>
     <div id="container">
       <div id="head">
-        <img
-          src="https://img.icons8.com/office/30/000000/menu.png"
-          class="menu"
-        />
-        <input
-          type="text"
-          data-bind="value: person, visible: editing, hasFocus: editing"
-          placeholder="Your name"
-          class="welcome"
-        />
+        <div class="first-head-part">
+          <img
+            src="https://img.icons8.com/office/30/000000/menu.png"
+            class="menu"
+          />
+          <input
+            type="text"
+            data-bind="value: person, visible: editing, hasFocus: editing"
+            placeholder="Your name"
+            class="welcome"
+          />
 
-        <p class="welcome">
-          welcome
-          <span
-            data-bind="text: person().length === 0 ? 'new user' : person, visible: !editing(), click: edit"
-          ></span>
-        </p>
+          <p class="welcome">
+            welcome <br />
+            <span
+              data-bind="text: person().length === 0 ? 'new user' : person, visible: !editing(), click: edit"
+            ></span>
+          </p>
+        </div>
+        <div class="second-head-part">
+        </div>
       </div>
 
       <div id="nav">
@@ -73,7 +77,11 @@
             <div class="todo-item">
               <div data-bind="class: isDone" class="task">
                 <div>
-                  <input data-bind="value: name, disable: isDone" type="text" placeholder="new task" />
+                  <input
+                    data-bind="value: name, disable: isDone"
+                    type="text"
+                    placeholder="new task"
+                  />
                 </div>
               </div>
               <div data-bind="class: isDone" class="done-remove">

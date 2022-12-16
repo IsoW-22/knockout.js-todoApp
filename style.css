@@ -5,7 +5,8 @@
   overflow: hidden;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
@@ -27,13 +28,29 @@ html, body {
   position: absolute;
   height: 100%;
   z-index: 1000;
-  transition: width s;
+  transition: width 1s;
 }
 
 #head {
+  display: flex;
   background-color: #B6CCA1;
   grid-area: head;
   position: relative;
+}
+#head .first-head-part {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#head .second-head-part {
+  width: 60%;
+  height: 100%;
+  background-image: url("man.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #items {
@@ -62,8 +79,6 @@ html, body {
 
 .welcome {
   font-size: 1.5rem;
-  margin-left: 200px;
-  margin-top: 20px;
   font-family: "Source Code Pro", monospace;
 }
 
@@ -73,6 +88,7 @@ h2 {
 }
 
 .add-todo {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   width: 80px;
   height: 40px;
   background-color: #B6CCA1;
@@ -99,6 +115,7 @@ ul li {
   align-items: center;
   margin-top: 2px;
   padding-left: 10px;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 ul li:hover {
   background-color: rgba(48, 1, 30, 0.5);
@@ -122,7 +139,8 @@ label {
 .true a {
   color: white;
 }
-.true .remove, .true .done {
+.true .remove,
+.true .done {
   background-color: green !important;
 }
 
@@ -150,6 +168,8 @@ input[type=checkbox] {
   position: absolute;
   width: 30px;
   height: 30px;
+  top: 0;
+  left: 0;
   margin-top: 3px;
 }
 .menu:hover {
@@ -169,7 +189,8 @@ input[type=checkbox] {
   margin-top: 10px;
 }
 
-.task, .done-remove {
+.task,
+.done-remove {
   height: 40px;
   margin-top: 2px;
 }
@@ -251,13 +272,15 @@ input[type=checkbox] {
     float: none;
   }
   .welcome {
-    margin: 0;
+    margin-left: 15px;
     text-align: center;
   }
-  .back, .menu {
+  .back,
+.menu {
     display: block;
   }
-  .done-remove, .task {
+  .done-remove,
+.task {
     width: 100%;
   }
   .task input {
